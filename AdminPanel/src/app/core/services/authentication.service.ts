@@ -64,4 +64,9 @@ export class AuthenticationService {
     localStorage.removeItem(this.storagekey);
     this.router.navigate(['/login']);
   }
+  getUserName() {
+    var obj = JSON.parse(localStorage.getItem(this.storagekey) ?? "{}");
+    return obj?.userName ?? "notfound";
+  }
+
 }

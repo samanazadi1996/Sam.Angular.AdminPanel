@@ -8,8 +8,11 @@ import { AuthenticationService } from "../core/services/authentication.service";
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit{
+  userName:string='';
+
   constructor(private titleService: Title,private authenticationService: AuthenticationService) { }
   ngOnInit() {
+    this.userName=this.authenticationService.getUserName()
     this.title = this.titleService.getTitle();
   }
   public logout() {
