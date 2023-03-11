@@ -1,36 +1,67 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from "../../../environments/environment";
+import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    constructor(private httpClient: HttpClient) {
-    }
-    private storagekey = "profile";
+  private storagekey = 'profile';
+  isLoggedIn = false;
 
-    login(userName: string, password: string) {
-        var user = { userName, password }
-        localStorage.removeItem(this.storagekey)
+  constructor(private httpClient: HttpClient, public router: Router) {
+    var token = localStorage.getItem(this.storagekey);
+    this.isLoggedIn = !!token;
+  }
 
-        this.httpClient.post(environment.baseUrl + "api/v1/Account/Authenticate", user)
-            .subscribe(
-                (val) => {
-                    localStorage.setItem(this.storagekey, JSON.stringify(val))
-                },
-                response => {
-                    var error = []
-                    for (let index = 0; index < response.error.validationErrors.length; index++) {
-                        const element = response.error.validationErrors[index];
-                        error.push(element.errorMessage)
-                    }
-                    alert(error.join(","))
-                },
-                () => {
-                    console.log("The POST observable is now completed.");
-                });
-    }
+  login(userName: string, password: string) {
+    var user = { userName, password };
+    localStorage.removeItem(this.storagekey);
 
-    logout() {
-        alert('')
-    }
+    this.httpClient
+      .post(environment.baseUrl + 'api/v1/Account/Authenticate', user)
+      .subscribe(
+        (val) => {
+          var response = Object(val);
+          this.isLoggedIn = response.success;
+          if (response.success) {
+            localStorage.setItem(
+              this.storagekey,
+              JSON.stringify(response.data)
+            );
+            this.router.navigate(['/']);
+          } else {
+            var error = [];
+            for (
+              let index = 0;
+              index < response.operationErrors.length;
+              index++
+            ) {
+              const element = response.operationErrors[index];
+              error.push(element.errorMessage);
+            }
+            alert(error.join(','));
+          }
+        },
+        (response) => {
+          var error = [];
+          for (
+            let index = 0;
+            index < response.error.validationErrors.length;
+            index++
+          ) {
+            const element = response.error.validationErrors[index];
+            error.push(element.errorMessage);
+          }
+          alert(error.join(','));
+        },
+        () => {
+          console.log('The POST observable is now completed.');
+        }
+      );
+  }
+
+  logout() {
+    localStorage.removeItem(this.storagekey);
+    this.router.navigate(['/login']);
+  }
 }

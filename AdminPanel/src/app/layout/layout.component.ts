@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { AuthenticationService } from "../core/services/authentication.service";
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +8,12 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit{
-  constructor(private titleService: Title) { }
+  constructor(private titleService: Title,private authenticationService: AuthenticationService) { }
   ngOnInit() {
     this.title = this.titleService.getTitle();
+  }
+  public logout() {
+    this.authenticationService.logout();
   }
 
   title = ""
