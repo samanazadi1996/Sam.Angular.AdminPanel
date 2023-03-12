@@ -4,5 +4,9 @@
   "Don't have an account?": "اکانت کاربری ندارید؟",
   "UserName": "نام کاربری",
   "Password": "رمز عبور",
-  "Remember me": "به خاطر سپردن"
+  "Remember me": "به خاطر سپردن",
+  
+  "The maximum number of characters":"حداکثر تعداد کاراکترها",
+  "this field is required":"این فیلد الزامی است",
+  "Please match the requested format":"لطفا با فرمت درخواستی مطابقت دهید"
 }
