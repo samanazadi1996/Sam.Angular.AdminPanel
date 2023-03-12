@@ -42,7 +42,7 @@
               </div>
             </div>
             <div class="card-body">
-              <form [formGroup]="loginForm" novalidate  (ngSubmit)="login()">
+              <form [formGroup]="loginForm"  (ngSubmit)="login()">
                 <div class="input-group input-group-outline my-3">
                   <div class="w-100">
                     <label>{{ "UserName" | translate }}</label>
@@ -50,7 +50,7 @@
                   </div>
                   <app-control-validation
                     [formGroup]="loginForm"
-                    field="userName"
+                    formControlName="userName"
                   ></app-control-validation>
                 </div>
 
@@ -65,7 +65,7 @@
                   </div>
                   <app-control-validation
                     [formGroup]="loginForm"
-                    field="password"
+                    formControlName="password"
                   ></app-control-validation>
                 </div>
                 <div class="form-check form-switch align-items-center mb-3">

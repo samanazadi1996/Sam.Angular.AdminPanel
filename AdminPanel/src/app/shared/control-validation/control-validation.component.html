@@ -1,11 +1,11 @@
-<div *ngIf="formGroup.controls[field].invalid && formGroup.controls[field].touched " class="text-danger">
-  <div *ngIf="formGroup.controls[field].errors.required">
+<div *ngIf="formGroup.controls[formControlName].invalid && formGroup.controls[formControlName].touched " class="text-danger">
+  <div *ngIf="formGroup.controls[formControlName].errors.required">
     {{ "this field is required" | translate }}
   </div>
-  <div *ngIf="formGroup.controls[field].errors.maxlength">
+  <div *ngIf="formGroup.controls[formControlName].errors.maxlength">
     {{ "The maximum number of characters" | translate }}
   </div>
-  <div *ngIf="formGroup.controls[field].errors.pattern">
+  <div *ngIf="formGroup.controls[formControlName].errors.pattern">
     {{ "Please match the requested format" | translate }}
   </div>
 </div>

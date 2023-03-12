@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ControlValidationComponent {
   @Input() formGroup:any;
-  @Input() field: string = '';
+  @Input() formControlName: string = '';
 }
