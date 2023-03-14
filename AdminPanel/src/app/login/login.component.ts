@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AuthenticationService } from '../core/services/authentication.service';
 import { Validators, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
+import { ErrorHandler } from '../core/helpers/errorHandler';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +15,11 @@ import { Validators, FormBuilder } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: any;
 
-  constructor(
+  constructor(private httpClient: HttpClient, public router: Router,
     private titleService: Title,
     private authenticationService: AuthenticationService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private errorHandler: ErrorHandler
   ) {
     this.loginForm = this.fb.group({
       userName: ['', [Validators.required]],
@@ -30,11 +35,24 @@ export class LoginComponent implements OnInit {
     });
   }
   title = 'Login';
+  apiErrors: Array<String> = []
   ngOnInit() {
     this.titleService.setTitle(this.title);
   }
   public login() {
-    var temp = this.loginForm.getRawValue();
-    this.authenticationService.login(temp.userName, temp.password);
+    var user = this.loginForm.getRawValue();
+    this.httpClient
+      .post(environment.baseUrl + 'api/v1/Account/Authenticate', user)
+      .subscribe(
+        (val) => {
+          var response = Object(val);
+          this.apiErrors = this.errorHandler.GetErrors(response)
+          if (response.success) {
+            this.authenticationService.login(response);
+            this.router.navigate(['/']);
+          }
+        }
+      );
+
   }
 }
