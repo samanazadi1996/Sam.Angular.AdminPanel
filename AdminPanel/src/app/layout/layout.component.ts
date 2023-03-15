@@ -18,7 +18,6 @@ export class LayoutComponent implements OnInit{
   }
   public logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
   }
 
   title = ""
