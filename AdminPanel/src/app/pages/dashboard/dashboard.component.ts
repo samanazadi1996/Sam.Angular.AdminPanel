@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../core/services/authentication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,6 +28,6 @@ export class DashboardComponent implements OnInit {
       );
   }
   mbox() {
-    alert("test")
+    Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
   }
 }
