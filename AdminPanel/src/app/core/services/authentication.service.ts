@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private storagekey = 'profile';
+  private profile :any ;
   isLoggedIn = false;
 
   constructor(private router: Router) {
-    var token = localStorage.getItem(this.storagekey);
-    this.isLoggedIn = !!token;
+    this.profile = localStorage.getItem(this.storagekey);
+    this.isLoggedIn = !!this.profile;
   }
 
   login(model: Object) {
@@ -26,11 +27,11 @@ export class AuthenticationService {
     this.router.navigate(['/login']);
   }
   getUserName() {
-    var obj = JSON.parse(localStorage.getItem(this.storagekey) ?? "{}");
+    var obj = JSON.parse(this.profile ?? "{}");
     return obj?.userName ?? "notfound";
   }
   getToken() {
-    var obj = JSON.parse(localStorage.getItem(this.storagekey) ?? "{}");
+    var obj = JSON.parse(this.profile ?? "{}");
     return obj?.jwToken;
   }
   errorHandler(error: any) {

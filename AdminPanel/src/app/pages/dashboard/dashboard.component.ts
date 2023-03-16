@@ -25,6 +25,8 @@ export class DashboardComponent implements OnInit {
           this.authenticationService.errorHandler(error);
         }
       );
-
+  }
+  mbox() {
+    alert("test")
   }
 }
