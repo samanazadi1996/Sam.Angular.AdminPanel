@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>
+    {{"Add Product" | translate}}
+</h2>
+<form [formGroup]="createForm" (ngSubmit)="save()">
+    <mat-dialog-content>
+        <div class="list-unstyled text-danger text-center">
+            <div *ngFor="let item of this.apiErrors">{{item}}</div>
+          </div>
+
+        <div class="input-group input-group-outline my-3">
+            <div class="w-100">
+                <label>{{ "Name" | translate }}</label>
+                <input formControlName="name" class="form-control" />
+            </div>
+            <app-control-validation [formGroup]="createForm" formControlName="userName"></app-control-validation>
+        </div>
+        <div class="input-group input-group-outline my-3">
+            <div class="w-100">
+                <label>{{ "Price" | translate }}</label>
+                <input formControlName="price" class="form-control" type="number"/>
+            </div>
+            <app-control-validation [formGroup]="createForm" formControlName="price"></app-control-validation>
+        </div>
+        <div class="input-group input-group-outline my-3">
+            <div class="w-100">
+                <label>{{ "BarCode" | translate }}</label>
+                <input formControlName="barCode" class="form-control" />
+            </div>
+            <app-control-validation [formGroup]="createForm" formControlName="barCode"></app-control-validation>
+        </div>
+
+
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button class="btn btn-danger m-2" (click)="closeDialog()" type="button">
+            {{"Cancel" | translate}}
+        </button>
+        <button class="btn btn-success m-2" type="submit">
+            {{"Save" | translate}}
+        </button>
+    </mat-dialog-actions>
+</form>

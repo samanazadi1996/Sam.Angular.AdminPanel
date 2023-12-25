@@ -5,6 +5,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { AuthGuard } from './core/guard/auth.guard';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProductsComponent } from './pages/products/products.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'products',
+        component: ProductsComponent
       }
     ]
   }

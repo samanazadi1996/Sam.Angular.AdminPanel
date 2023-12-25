@@ -28,8 +28,8 @@ export class LayoutComponent implements OnInit{
       icon: 'dashboard'
     },
     {
-      title: 'لیست کاربران',
-      url: 'person',
+      title: 'کالا ها',
+      url: 'products',
       icon: 'person'
     },
     {

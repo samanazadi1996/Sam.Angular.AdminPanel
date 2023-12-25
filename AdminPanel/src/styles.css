@@ -2,3 +2,6 @@
 @import 'assets/css/nucleo-icons.css';
 @import 'assets/css/nucleo-svg.css';
 @import 'assets/css/material-dashboard.css?v=3.0.4';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
