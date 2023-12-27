@@ -23,6 +23,7 @@ import { ProductListComponent } from './modules/product/view/product-list/produc
 import { DashboardComponent } from './modules/dashboard/view/dashboard/dashboard.component';
 import { ProductCreateComponent } from './modules/product/view/product-create/product-create.component';
 import { HttpConfigInterceptor } from './core/interceptors/interceptor';
+import { HttpErrorInterceptor } from './core/interceptors/errorInterceptor';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
 @NgModule({
@@ -59,6 +60,11 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpConfigInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
       multi: true,
     },
   ],

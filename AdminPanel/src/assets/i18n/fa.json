@@ -5,6 +5,13 @@
   "UserName": "نام کاربری",
   "Password": "رمز عبور",
   "Remember me": "به خاطر سپردن",
+  "Name": "نام",
+  "Id": "شناسه",
+  "Price": "قیمت",
+  "BarCode": "بار کد",
+  "Add Product": "اضافه کردن کالا",
+  "Save": "ذخیره",
+  "Cancel": "لفو",
   
   "The maximum number of characters":"حداکثر تعداد کاراکترها",
   "this field is required":"این فیلد الزامی است",

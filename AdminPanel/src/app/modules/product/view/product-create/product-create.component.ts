@@ -28,8 +28,6 @@ export class ProductCreateComponent {
     this.createProductDto = new CreateProductDto();
   }
 
-  apiErrors: Array<String> = [];
-
   save() {
     this.createProductDto.init({
       name: this.createForm.get('name')?.value,
@@ -40,7 +38,7 @@ export class ProductCreateComponent {
     this.productsService
       .createProduct(this.createProductDto)
       .subscribe((response: any) => {
-        this.closeDialog();
+        if (response.success) this.closeDialog();
       });
   }
 
