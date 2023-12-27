@@ -1,11 +1,11 @@
+import { ProductListComponent } from './modules/product/view/product-list/product-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthGuard } from './core/guard/auth.guard';
+import { DashboardComponent } from './modules/dashboard/view/dashboard/dashboard.component';
 
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ProductsComponent } from './pages/products/products.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent
+        component: ProductListComponent
       }
     ]
   }

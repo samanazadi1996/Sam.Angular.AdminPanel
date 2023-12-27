@@ -1,8 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { AuthenticationService } from '../../core/services/authentication.service';
+import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import Swal from 'sweetalert2';
 
 @Component({
