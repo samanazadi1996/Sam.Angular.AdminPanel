@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutComponent } from './layout/layout.component';
-import { ControlValidationComponent } from './shared/control-validation/control-validation.component';
+import { ControlValidationComponent } from './shared/components/control-validation/control-validation.component';
 import { ProductListComponent } from './modules/product/view/product-list/product-list.component';
 import { DashboardComponent } from './modules/dashboard/view/dashboard/dashboard.component';
 import { ProductCreateComponent } from './modules/product/view/product-create/product-create.component';
