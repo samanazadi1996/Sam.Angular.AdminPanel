@@ -3,32 +3,37 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu.component.html'
+  templateUrl: './menu.component.html',
 })
 export class MenuComponent {
-  menu :any= [];
-
   constructor(private translate: TranslateService) {
-    this.initializeMenu();
-  }
-  ngOnInit() {
-    this.initializeMenu();
+    var model = [
+      {
+        title: 'Dashboard',
+        url: 'dashboard',
+        icon: 'dashboard',
+      },
+      {
+        title: 'Products',
+        url: 'products',
+        icon: 'dashboard',
+      },
+    ];
+    this.initializeMenu(model);
   }
 
-  private initializeMenu() {
-    this.translate.get(['Dashboard', 'Products']).subscribe((translations: any) => {
-      this.menu = [
-        {
-          title: translations['Dashboard'],
-          url: 'dashboard',
-          icon: 'dashboard',
-        },
-        {
-          title: translations['Products'],
-          url: 'products',
-          icon: 'product',
-        }
-      ];
+  menu: any = [];
+  private initializeMenu(model: any[]) {
+    var titleList = model.map((p) => p.title);
+    this.translate.get(titleList).subscribe((translations: any) => {
+      for (let index = 0; index < model.length; index++) {
+        const element = model[index];
+        this.menu.push({
+          title: translations[element.title],
+          url: element.url,
+          icon: element.icon,
+        });
+      }
     });
   }
 }
