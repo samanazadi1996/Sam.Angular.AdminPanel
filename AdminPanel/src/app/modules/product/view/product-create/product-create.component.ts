@@ -8,7 +8,6 @@ import { ProductService } from '../../service/product.service';
 @Component({
   selector: 'app-product-create',
   templateUrl: './product-create.component.html',
-  styleUrls: ['./product-create.component.css'],
 })
 export class ProductCreateComponent {
   @Output() productSaved: EventEmitter<void> = new EventEmitter<void>();

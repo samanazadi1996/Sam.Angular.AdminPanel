@@ -26,6 +26,7 @@ import { HttpConfigInterceptor } from './core/interceptors/interceptor';
 import { HttpErrorInterceptor } from './core/interceptors/errorInterceptor';
 import { LanguageComponent } from './layout/headers/language/language.component';
 import { MenuComponent } from './layout/headers/menu/menu.component';
+import { ProductUpdateComponent } from './modules/product/view/product-update/product-update.component';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
 @NgModule({
@@ -39,6 +40,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     ProductCreateComponent,
     LanguageComponent,
     MenuComponent,
+    ProductUpdateComponent,
   ],
 
   imports: [

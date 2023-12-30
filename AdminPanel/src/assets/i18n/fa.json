@@ -10,12 +10,23 @@
   "Price": "قیمت",
   "BarCode": "بار کد",
   "Add Product": "اضافه کردن کالا",
+  "Edit Product": "ویرایش کردن کالا",
   "Save": "ذخیره",
   "Cancel": "لفو",
   "Products": "کالا ها",
   "Dashboard": "داشبورد",
-  
-  "The maximum number of characters":"حداکثر تعداد کاراکترها",
-  "this field is required":"این فیلد الزامی است",
-  "Please match the requested format":"لطفا با فرمت درخواستی مطابقت دهید"
+  "Actions": "عملیات ها",
+  "Edit": "ویرایش",
+  "Delete": "حذف",
+
+  "The maximum number of characters": "حداکثر تعداد کاراکترها",
+  "this field is required": "این فیلد الزامی است",
+  "Please match the requested format": "لطفا با فرمت درخواستی مطابقت دهید",
+
+  "Are you sure?": "آیا اطمینان دارید؟",
+  "You won't be able to revert this!": "شما قادر به بازگشت این عمل نخواهید بود!",
+  "Yes, delete it!": "بله، حذف کنید!",
+  "Deleted": "حذف شد",
+  "Your product has been deleted": "کالای شما حذف شده است",
+  "ok":"متوجه شدم"
 }

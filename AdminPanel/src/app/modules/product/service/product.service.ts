@@ -1,8 +1,9 @@
+import { UpdateProductDto } from './../dto/UpdateProductDto';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ApiHelperService } from '../../../core/services/api-helper.service';
-import { ProductDto } from '../dto/product.dto';
+import { ProductDto } from '../dto/ProductDto';
 import { CreateProductDto } from '../dto/CreateProductDto';
 
 @Injectable({
@@ -17,9 +18,23 @@ export class ProductService {
 
     return this.apiService.get<ProductDto>(params, url);
   }
+  getProductById(id: number): Observable<ProductDto> {
+    let params = `?id=${id}`;
+    const url = environment.baseUrl + 'api/v1/Product/GetProductById';
+    return this.apiService.get<ProductDto>(params, url);
+  }
 
   createProduct(body: CreateProductDto): Observable<number> {
     const url = environment.baseUrl + 'api/v1/Product/CreateProduct';
     return this.apiService.post<any>(body, url);
+  }
+  updateProduct(body: UpdateProductDto): Observable<number> {
+    const url = environment.baseUrl + 'api/v1/Product/UpdateProduct';
+    return this.apiService.put<any>(body, url);
+  }
+  deleteProductById(id: number): Observable<number> {
+    let params = `?id=${id}`;
+    const url = environment.baseUrl + 'api/v1/Product/DeleteProduct';
+    return this.apiService.delete<any>(params, url);
   }
 }

@@ -10,12 +10,23 @@
   "Price": "Price",
   "BarCode": "BarCode",
   "Add Product": "Add Product",
+  "Edit Product": "Edit Product",
   "Save": "Save",
   "Cancel": "Cancel",
   "Products": "Products",
   "Dashboard": "Dashboard",
+  "Actions": "Actions",
+  "Edit": "Edit",
+  "Delete": "Delete",
 
-  "The maximum number of characters":"The maximum number of characters",
-  "this field is required":"this field is required",
-  "Please match the requested format":"Please match the requested format"
+  "The maximum number of characters": "The maximum number of characters",
+  "this field is required": "this field is required",
+  "Please match the requested format": "Please match the requested format",
+
+  "Are you sure?": "Are you sure?",
+  "You won't be able to revert this!": "You won't be able to revert this!",
+  "Yes, delete it!": "Yes, delete it!",
+  "Deleted": "Deleted",
+  "Your product has been deleted": "Your product has been deleted",
+  "ok":"ok"
 }
