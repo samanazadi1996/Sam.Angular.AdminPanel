@@ -12,7 +12,9 @@
   "Add Product": "Add Product",
   "Save": "Save",
   "Cancel": "Cancel",
-  
+  "Products": "Products",
+  "Dashboard": "Dashboard",
+
   "The maximum number of characters":"The maximum number of characters",
   "this field is required":"this field is required",
   "Please match the requested format":"Please match the requested format"

@@ -16,7 +16,7 @@ export class AppComponent {
       lang = environment.defaultLanguage;
       localStorage.setItem('selectedLanguage', lang);
     }
-
+    translate.addLangs(environment.Languages);
     translate.setDefaultLang(lang);
     translate.use(lang);
   }

@@ -25,22 +25,4 @@ export class LayoutComponent implements OnInit {
   }
 
   title = '';
-  menu = [
-    {
-      title: 'داشبورد',
-      url: 'dashboard',
-      icon: 'dashboard',
-    },
-    {
-      title: 'کالا ها',
-      url: 'products',
-      icon: 'person',
-    },
-    {
-      title: 'داشبورد3',
-      url: 'dashboard',
-      icon: 'dashboard',
-    },
-  ];
-
 }

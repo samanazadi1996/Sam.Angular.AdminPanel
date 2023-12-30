@@ -25,6 +25,7 @@ import { ProductCreateComponent } from './modules/product/view/product-create/pr
 import { HttpConfigInterceptor } from './core/interceptors/interceptor';
 import { HttpErrorInterceptor } from './core/interceptors/errorInterceptor';
 import { LanguageComponent } from './layout/headers/language/language.component';
+import { MenuComponent } from './layout/headers/menu/menu.component';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
 @NgModule({
@@ -37,6 +38,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     ProductListComponent,
     ProductCreateComponent,
     LanguageComponent,
+    MenuComponent,
   ],
 
   imports: [

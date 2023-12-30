@@ -1,0 +1,12 @@
+<ul class="navbar-nav">
+    <li class="nav-item" *ngFor="let item of this.menu">
+      <a class="nav-link" routerLink="/{{ item.url }}">
+        <div
+          class="text-white text-center ms-2 d-flex align-items-center justify-content-center"
+        >
+          <i class="material-icons-round opacity-10">{{ item.icon }}</i>
+        </div>
+        <span class="nav-link-text me-1">{{ item.title }}</span>
+      </a>
+    </li>
+  </ul>
