@@ -1,41 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { AuthenticationService } from "../core/services/authentication.service";
+import { AuthenticationService } from '../core/services/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css']
+  styleUrls: ['./layout.component.css'],
 })
-export class LayoutComponent implements OnInit{
-  userName:string='';
+export class LayoutComponent implements OnInit {
+  userName: string = '';
 
-  constructor(private titleService: Title,private authenticationService: AuthenticationService,public router: Router) { }
+  constructor(
+    private titleService: Title,
+    private authenticationService: AuthenticationService,
+    public router: Router
+  ) {}
   ngOnInit() {
-    this.userName=this.authenticationService.getUserName()
+    this.userName = this.authenticationService.getUserName();
     this.title = this.titleService.getTitle();
   }
   public logout() {
     this.authenticationService.logout();
   }
 
-  title = ""
+  title = '';
   menu = [
     {
       title: 'داشبورد',
       url: 'dashboard',
-      icon: 'dashboard'
+      icon: 'dashboard',
     },
     {
       title: 'کالا ها',
       url: 'products',
-      icon: 'person'
+      icon: 'person',
     },
     {
       title: 'داشبورد3',
       url: 'dashboard',
-      icon: 'dashboard'
-    }
-  ]
+      icon: 'dashboard',
+    },
+  ];
+
 }

@@ -12,7 +12,6 @@ import { ProductService } from '../../service/product.service';
 })
 export class ProductCreateComponent {
   createForm: FormGroup;
-  createProductDto: CreateProductDto;
 
   constructor(
     public router: Router,
@@ -25,18 +24,19 @@ export class ProductCreateComponent {
       price: [0, [Validators.required]],
       barCode: ['', [Validators.required]],
     });
-    this.createProductDto = new CreateProductDto();
   }
 
   save() {
-    this.createProductDto.init({
+    var createProductDto = new CreateProductDto();
+
+    createProductDto.init({
       name: this.createForm.get('name')?.value,
       price: this.createForm.get('price')?.value,
       barCode: this.createForm.get('barCode')?.value,
     });
 
     this.productsService
-      .createProduct(this.createProductDto)
+      .createProduct(createProductDto)
       .subscribe((response: any) => {
         if (response.success) this.closeDialog();
       });

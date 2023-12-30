@@ -1,0 +1,19 @@
+{
+  "Login": "Login",
+  "Sign up": "Sign up",
+  "Don't have an account?": "Don't have an account?",
+  "UserName": "UserName",
+  "Password": "Password",
+  "Remember me": "Remember me",
+  "Name": "Name",
+  "Id": "Id",
+  "Price": "Price",
+  "BarCode": "BarCode",
+  "Add Product": "Add Product",
+  "Save": "Save",
+  "Cancel": "Cancel",
+  
+  "The maximum number of characters":"The maximum number of characters",
+  "this field is required":"this field is required",
+  "Please match the requested format":"Please match the requested format"
+}

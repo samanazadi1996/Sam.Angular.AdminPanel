@@ -1,0 +1,9 @@
+<select
+  [(ngModel)]="selectedLanguage"
+  class="form-select py-0 ps-1 bg-body"
+  (change)="setLanguage()"
+>
+  <option class="nav-item" *ngFor="let item of this.languages">
+    {{ item }}
+  </option>
+</select>

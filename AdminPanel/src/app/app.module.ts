@@ -1,5 +1,5 @@
 import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 // import ngx-translate and the http loader
@@ -18,12 +18,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutComponent } from './layout/layout.component';
-import { ControlValidationComponent } from './shared/control-validation/control-validation.component';
+import { ControlValidationComponent } from './shared/components/control-validation/control-validation.component';
 import { ProductListComponent } from './modules/product/view/product-list/product-list.component';
 import { DashboardComponent } from './modules/dashboard/view/dashboard/dashboard.component';
 import { ProductCreateComponent } from './modules/product/view/product-create/product-create.component';
 import { HttpConfigInterceptor } from './core/interceptors/interceptor';
 import { HttpErrorInterceptor } from './core/interceptors/errorInterceptor';
+import { LanguageComponent } from './layout/headers/language/language.component';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
 @NgModule({
@@ -35,6 +36,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     ControlValidationComponent,
     ProductListComponent,
     ProductCreateComponent,
+    LanguageComponent,
   ],
 
   imports: [
