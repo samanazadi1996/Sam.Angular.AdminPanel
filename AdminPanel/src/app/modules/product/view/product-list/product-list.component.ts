@@ -32,12 +32,13 @@ export class ProductListComponent implements OnInit {
 
 
   CreateProduct() {
-    let dialogRef = this.dialog.open(ProductCreateComponent, {
+    const dialogRef = this.dialog.open(ProductCreateComponent, {
       width: '600px',
     });
-    dialogRef.afterClosed().subscribe(() => {
+
+    dialogRef.componentInstance.productSaved.subscribe(() => {
       this.getProducts();
     });
-  
+    
   }
 }

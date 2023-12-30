@@ -1,5 +1,5 @@
 import { CreateProductDto } from './../../dto/CreateProductDto';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -11,6 +11,8 @@ import { ProductService } from '../../service/product.service';
   styleUrls: ['./product-create.component.css'],
 })
 export class ProductCreateComponent {
+  @Output() productSaved: EventEmitter<void> = new EventEmitter<void>();
+
   createForm: FormGroup;
 
   constructor(
@@ -43,6 +45,7 @@ export class ProductCreateComponent {
   }
 
   closeDialog() {
+    this.productSaved.emit();
     this.dialogRef.close();
   }
 }
