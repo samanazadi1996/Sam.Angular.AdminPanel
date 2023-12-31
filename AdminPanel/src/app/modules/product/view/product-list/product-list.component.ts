@@ -18,15 +18,27 @@ export class ProductListComponent implements OnInit {
     public router: Router,
     private productsService: ProductService,
     private translate: TranslateService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getProducts();
   }
+  currentPage = 1;
+  pageSize = 20;
+  totalPages?: number;
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.getProducts()
+  }
+
   listProducts: IProductDto[] = [];
 
   getProducts(): void {
-    this.productsService.getProductList().subscribe((response: any) => {
-      if (response.success) this.listProducts = response.data;
+    this.productsService.getProductList(this.currentPage, this.pageSize).subscribe((response: any) => {
+      if (response.success) {
+        this.listProducts = response.data;
+        this.totalPages = response.totalPages;
+      }
     });
   }
 

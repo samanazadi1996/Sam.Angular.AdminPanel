@@ -27,6 +27,9 @@ import { HttpErrorInterceptor } from './core/interceptors/errorInterceptor';
 import { LanguageComponent } from './layout/headers/language/language.component';
 import { MenuComponent } from './layout/headers/menu/menu.component';
 import { ProductUpdateComponent } from './modules/product/view/product-update/product-update.component';
+import { TextBoxComponent } from './shared/components/text-box/text-box.component';
+import { NumberBoxComponent } from './shared/components/number-box/number-box.component';
+import { PaginationComponent } from './shared/components/pagination/pagination.component';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
 @NgModule({
@@ -41,6 +44,9 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     LanguageComponent,
     MenuComponent,
     ProductUpdateComponent,
+    TextBoxComponent,
+    NumberBoxComponent,
+    PaginationComponent,
   ],
 
   imports: [

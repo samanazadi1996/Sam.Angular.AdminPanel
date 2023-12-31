@@ -10,10 +10,7 @@
       </div>
       <hr class="dark horizontal my-0" />
       <div class="card-footer p-3 table-responsive">
-        <table
-          class="table table-responsive table-striped table-hover"
-          ng-if="this.listProducts.length > 0"
-        >
+        <table class="table table-responsive table-striped table-hover" ng-if="this.listProducts.length > 0">
           <tr>
             <td>{{ "Id" | translate }}</td>
             <td>{{ "Name" | translate }}</td>
@@ -36,6 +33,10 @@
             </td>
           </tr>
         </table>
+      </div>
+      <div>
+        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages"
+          (pageChanged)="onPageChange($event)"></app-pagination>
       </div>
     </div>
   </div>

@@ -1,0 +1,17 @@
+<nav aria-label="Page navigation example" *ngIf="currentPage && totalPages">
+    <ul class="pagination">
+        <li class="page-item" [ngClass]="{'disabled': currentPage === 1}">
+            <a class="page-link cursor-pointer" (click)="goToPage(currentPage - 1)">&lt;</a>
+        </li>
+
+        <ng-container *ngFor="let item of pages">
+            <li class="page-item" [class.active]="item === currentPage">
+                <a class="page-link cursor-pointer" (click)="goToPage(item)">{{ item }}</a>
+            </li>
+        </ng-container>
+
+        <li class="page-item" [ngClass]="{'disabled': currentPage === totalPages}">
+            <a class="page-link cursor-pointer" (click)="goToPage(currentPage + 1)">&gt;</a>
+        </li>
+    </ul>
+</nav>

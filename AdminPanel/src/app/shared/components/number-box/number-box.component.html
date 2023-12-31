@@ -1,0 +1,8 @@
+<div class="mb-3">
+    <div class="form-floating">
+        <input class="border border-2 form-control px-2" [placeholder]="formControlName" autocomplete="off" 
+        [formControl]="formGroup.get(formControlName)" type="number">
+        <label class="w-100 px-3 text-dark">{{ label | translate }}</label>
+    </div>
+    <app-control-validation [formGroup]="formGroup" [formControlName]="formControlName"></app-control-validation>
+</div>

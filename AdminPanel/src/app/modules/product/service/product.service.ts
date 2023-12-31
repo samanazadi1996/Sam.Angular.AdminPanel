@@ -10,10 +10,10 @@ import { CreateProductDto } from '../dto/CreateProductDto';
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(private apiService: ApiHelperService) {}
+  constructor(private apiService: ApiHelperService) { }
 
-  getProductList(): Observable<ProductDto> {
-    let params = '';
+  getProductList(pageNumber: number, pageSize: number): Observable<ProductDto> {
+    let params = `?PageNumber=${pageNumber}&PageSize=${pageSize}`;
     const url = environment.baseUrl + 'api/v1/Product/GetPagedListProduct';
 
     return this.apiService.get<ProductDto>(params, url);
