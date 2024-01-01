@@ -46,22 +46,18 @@ export class ProductListComponent implements OnInit {
   }
 
   createProduct() {
-    const dialogRef = this.dialog.open(ProductCreateComponent, {
+    this.dialog.open(ProductCreateComponent, {
       width: '600px',
-    });
-
-    dialogRef.componentInstance.productSaved.subscribe(() => {
+    }).componentInstance.productSaved.subscribe(() => {
       this.getProducts();
     });
   }
 
   updateProduct(id: any) {
-    const dialogRef = this.dialog.open(ProductUpdateComponent, {
+    this.dialog.open(ProductUpdateComponent, {
       width: '600px',
       data: { id },
-    });
-
-    dialogRef.componentInstance.productSaved.subscribe(() => {
+    }).componentInstance.productSaved.subscribe(() => {
       this.getProducts();
     });
   }
