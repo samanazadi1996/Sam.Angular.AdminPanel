@@ -1,8 +1,17 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
+  styleUrls: ['./pagination.component.css'],
 })
 export class PaginationComponent implements OnInit, OnChanges {
   ngOnInit(): void {
@@ -14,25 +23,39 @@ export class PaginationComponent implements OnInit, OnChanges {
       this.generate();
     }
   }
-  @Input() currentPage?: number;
+  @Input() pageNumber?: number;
+  @Input() pageSize?: number;
   @Input() totalPages?: number;
+  @Input() pageSizes?: number[] = [10, 20, 50, 100, 200, 500];
 
-  @Output() pageChanged = new EventEmitter<number>();
-  pages: number[] = []
+  @Output() pageChanged = new EventEmitter<any>();
+  pages: number[] = [];
   goToPage(page: number): void {
-    if (this.totalPages && this.currentPage) {
-      if (page >= 1 && page <= this.totalPages) {
-        this.pageChanged.emit(page);
-      }
-      this.generate()
+    if (this.totalPages && this.pageNumber) {
+      this.pageNumber = page;
+      if (this.pageSize)
+        this.pageChanged.emit({ page: page, pageSize: Number(this.pageSize) });
+      else this.pageChanged.emit({ page: page });
+      this.generate();
     }
   }
   generate() {
-    if (this.totalPages && this.currentPage) {
-      const startpage = Math.max(this.currentPage - 5, 1);
-      const endpage = Math.min(startpage + 9, this.totalPages + 1);
-  
-      this.pages = Array.from({ length: endpage - startpage }, (_, index) => startpage + index);
+    if (this.totalPages && this.pageNumber) {
+      var startpage = this.pageNumber - 4;
+
+      if (startpage <= 0) startpage = 1;
+
+      var endpage = startpage + 9;
+      if (endpage > this.totalPages) {
+        startpage -= endpage - this.totalPages - 1;
+        if (startpage <= 0) startpage = 1;
+        endpage = this.totalPages + 1;
+      }
+
+      this.pages = Array.from(
+        { length: endpage - startpage },
+        (_, index) => startpage + index
+      );
     }
   }
-  }
+}
