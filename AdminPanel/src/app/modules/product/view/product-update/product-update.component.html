@@ -3,37 +3,10 @@
   </h2>
   <form [formGroup]="updateForm" (ngSubmit)="save()">
     <mat-dialog-content>
-      <div class="input-group input-group-outline my-3">
-        <div class="w-100">
-          <label>{{ "Name" | translate }}</label>
-          <input formControlName="name" class="form-control" />
-        </div>
-        <app-control-validation
-          [formGroup]="updateForm"
-          formControlName="name"
-        ></app-control-validation>
-      </div>
-      <div class="input-group input-group-outline my-3">
-        <div class="w-100">
-          <label>{{ "Price" | translate }}</label>
-          <input formControlName="price" class="form-control" type="number" />
-        </div>
-        <app-control-validation
-          [formGroup]="updateForm"
-          formControlName="price"
-        ></app-control-validation>
-      </div>
-      <div class="input-group input-group-outline my-3">
-        <div class="w-100">
-          <label>{{ "BarCode" | translate }}</label>
-          <input formControlName="barCode" class="form-control" />
-        </div>
-        <app-control-validation
-          [formGroup]="updateForm"
-          formControlName="barCode"
-        ></app-control-validation>
-      </div>
-    </mat-dialog-content>
+      <app-text-box [formGroup]="updateForm" [formControlName]="'name'" label="Name"></app-text-box>
+      <app-number-box [formGroup]="updateForm" [formControlName]="'price'" label="Price"></app-number-box>
+      <app-text-box [formGroup]="updateForm" [formControlName]="'barCode'" label="BarCode"></app-text-box>
+      </mat-dialog-content>
     <mat-dialog-actions>
       <button class="btn btn-danger m-2" (click)="closeDialog()" type="button">
         {{ "Cancel" | translate }}
