@@ -7,6 +7,8 @@ import { ProductCreateComponent } from '../product-create/product-create.compone
 import { ProductService } from '../../service/product.service';
 import { IProductDto } from '../../dto/ProductDto';
 import { TranslateService } from '@ngx-translate/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { GridSettings } from 'src/app/core/services/GridSettings';
 
 @Component({
   selector: 'app-product-list',
@@ -18,7 +20,7 @@ export class ProductListComponent implements OnInit {
     public router: Router,
     private productsService: ProductService,
     private translate: TranslateService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getProducts();
   }
@@ -41,6 +43,7 @@ export class ProductListComponent implements OnInit {
         if (response.success) {
           this.listProducts = response.data;
           this.totalPages = response.totalPages;
+          // this.dataSource = new MatTableDataSource<IProductDto>(response.data);
         }
       });
   }
@@ -110,4 +113,41 @@ export class ProductListComponent implements OnInit {
       });
     });
   }
+
+  // grid
+  // dataSource = new MatTableDataSource<IProductDto>();
+  // gridSettings: GridSettings = {
+  //   columnsConfig: [
+  //     {
+  //       field: 'id',
+  //       title: 'Id',
+  //       width: 0,
+  //       hidden: true,
+  //     },
+  //     {
+  //       field: 'name',
+  //       title: 'Name',
+  //       width: 200,
+  //       hidden: false,
+  //     }, {
+  //       field: 'price',
+  //       title: 'Price',
+  //       width: 200,
+  //       hidden: false,
+  //     }, {
+  //       field: 'barCode',
+  //       title: 'BarCode',
+  //       width: 200,
+  //       hidden: false,
+  //     },
+  //   ],
+  // };
+  // displayedColumns: string[] = [
+  //   'id',
+  //   'name',
+  //   'price',
+  //   'barCode'
+  // ];
+
+
 }

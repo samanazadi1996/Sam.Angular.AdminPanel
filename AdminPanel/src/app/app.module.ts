@@ -12,6 +12,7 @@ import {
 } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { ProductUpdateComponent } from './modules/product/view/product-update/pr
 import { TextBoxComponent } from './shared/components/text-box/text-box.component';
 import { NumberBoxComponent } from './shared/components/number-box/number-box.component';
 import { PaginationComponent } from './shared/components/pagination/pagination.component';
+import { DataGridComponent } from './shared/components/data-grid/data-grid.component';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
 @NgModule({
@@ -47,6 +49,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     TextBoxComponent,
     NumberBoxComponent,
     PaginationComponent,
+    DataGridComponent,
   ],
 
   imports: [
@@ -56,7 +59,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule,
+    MatDialogModule,MatTableModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

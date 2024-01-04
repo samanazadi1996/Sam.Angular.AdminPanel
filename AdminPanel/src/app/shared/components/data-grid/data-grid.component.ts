@@ -1,15 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
-import { GridSettings } from 'src/app/core/services';
+import { GridSettings } from 'src/app/core/services/GridSettings';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
-  selector: 'app-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss'],
+  selector: 'app-data-grid',
+  templateUrl: './data-grid.component.html',
+  styleUrls: ['./data-grid.component.css']
 })
-export class GridComponent implements OnInit {
+export class DataGridComponent implements OnInit {
   @Input() dataSource = new MatTableDataSource<any>();
   @Input() gridSettings: GridSettings = {
     columnsConfig: [],
@@ -25,13 +26,8 @@ export class GridComponent implements OnInit {
   selectedRow: any;
   baseImagePath!: string;
 
-  constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'persian']);
-    translate.setDefaultLang('persian');
-  }
-
   ngOnInit(): void {
-		this.baseImagePath = `${environment.fileUploaderUrl_}/Download`;
+    this.baseImagePath = `${environment.baseUrl}api/v1/File/GetFile`;
   }
 
   getRecord(selection: any): void {
