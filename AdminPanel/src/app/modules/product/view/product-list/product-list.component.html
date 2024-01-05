@@ -10,55 +10,11 @@
       </div>
       <hr class="dark horizontal my-0" />
       <div class="card-footer p-3 table-responsive">
-        <table
-          class="table table-responsive table-striped table-hover"
-          ng-if="this.listProducts.length > 0"
-        >
-          <tr>
-            <td>{{ "Id" | translate }}</td>
-            <td>{{ "Name" | translate }}</td>
-            <td>{{ "Price" | translate }}</td>
-            <td>{{ "BarCode" | translate }}</td>
-            <td>{{ "Actions" | translate }}</td>
-          </tr>
-          <tr *ngFor="let item of this.listProducts">
-            <td>{{ item.id }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.price }}</td>
-            <td>{{ item.barCode }}</td>
-            <td>
-              <button
-                (click)="updateProduct(item.id)"
-                class="btn btn-behance m-1 btn-sm"
-              >
-                {{ "Edit" | translate }}
-              </button>
-              <button
-                (click)="deleteProduct(item.id)"
-                class="btn btn-danger m-1 btn-sm"
-              >
-                {{ "Delete" | translate }}
-              </button>
-            </td>
-          </tr>
-        </table>
-
-        <!-- <app-data-grid
-        [dataSource]="dataSource"
-        [gridSettings]="gridSettings"
-        [displayedColumns]="displayedColumns"
-        [selectionKey]="'id'"
-      ></app-data-grid> -->
-
+        <app-data-grid [dataSource]="dataSource" [gridSettings]="gridSettings"></app-data-grid>
       </div>
       <div>
-        <app-pagination
-          [pageNumber]="pageNumber"
-          [totalPages]="totalPages"
-          [pageSize]="pageSize"
-          [pageSizes]="[10, 20, 50, 100, 200, 500]"
-          (pageChanged)="onPageChange($event)"
-        ></app-pagination>
+        <app-pagination [pageNumber]="pageNumber" [totalPages]="totalPages" [pageSize]="pageSize"
+          [pageSizes]="[10, 20, 50, 100, 200, 500]" (pageChanged)="onPageChange($event)"></app-pagination>
       </div>
     </div>
   </div>

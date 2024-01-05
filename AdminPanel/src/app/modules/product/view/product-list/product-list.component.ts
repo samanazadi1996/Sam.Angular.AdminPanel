@@ -34,16 +34,15 @@ export class ProductListComponent implements OnInit {
     this.getProducts();
   }
 
-  listProducts: IProductDto[] = [];
+  dataSource: IProductDto[] = [];
 
   getProducts(): void {
     this.productsService
       .getProductList(this.pageNumber, this.pageSize)
       .subscribe((response: any) => {
         if (response.success) {
-          this.listProducts = response.data;
+          this.dataSource = response.data;
           this.totalPages = response.totalPages;
-          // this.dataSource = new MatTableDataSource<IProductDto>(response.data);
         }
       });
   }
@@ -56,16 +55,16 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  updateProduct(id: any) {
+  updateProduct(item: IProductDto) {
     this.dialog.open(ProductUpdateComponent, {
       width: '600px',
-      data: { id },
+      data: { id: item.id },
     }).componentInstance.productSaved.subscribe(() => {
       this.getProducts();
     });
   }
 
-  deleteProduct(id: any) {
+  deleteProduct(item: IProductDto) {
     var messages = {
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -97,7 +96,7 @@ export class ProductListComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed) {
           this.productsService
-            .deleteProductById(id)
+            .deleteProductById(item.id ?? 0)
             .subscribe((response: any) => {
               if (response.success) {
                 this.getProducts();
@@ -115,39 +114,43 @@ export class ProductListComponent implements OnInit {
   }
 
   // grid
-  // dataSource = new MatTableDataSource<IProductDto>();
-  // gridSettings: GridSettings = {
-  //   columnsConfig: [
-  //     {
-  //       field: 'id',
-  //       title: 'Id',
-  //       width: 0,
-  //       hidden: true,
-  //     },
-  //     {
-  //       field: 'name',
-  //       title: 'Name',
-  //       width: 200,
-  //       hidden: false,
-  //     }, {
-  //       field: 'price',
-  //       title: 'Price',
-  //       width: 200,
-  //       hidden: false,
-  //     }, {
-  //       field: 'barCode',
-  //       title: 'BarCode',
-  //       width: 200,
-  //       hidden: false,
-  //     },
-  //   ],
-  // };
-  // displayedColumns: string[] = [
-  //   'id',
-  //   'name',
-  //   'price',
-  //   'barCode'
-  // ];
-
-
+  gridSettings: GridSettings = {
+    columnsConfig: [
+      {
+        field: 'id',
+        title: 'Id',
+        width: 0,
+        hidden: true,
+      },
+      {
+        field: 'name',
+        title: 'Name',
+        width: 200,
+        hidden: false,
+      }, {
+        field: 'price',
+        title: 'Price',
+        width: 200,
+        hidden: false,
+      }, {
+        field: 'barCode',
+        title: 'BarCode',
+        width: 200,
+        hidden: false,
+      },
+    ],
+    acionConfig: [
+      {
+        title: 'Edit',
+        icon: 'Edit',
+        cls: "btn btn-behance btn-sm m-1",
+        act: this.updateProduct.bind(this)
+      }, {
+        title: 'Delete',
+        icon: 'Delete',
+        cls: "btn btn-danger btn-sm m-1",
+        act: this.deleteProduct.bind(this)
+      }
+    ]
+  };
 }
