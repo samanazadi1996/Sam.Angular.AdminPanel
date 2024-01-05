@@ -3,7 +3,6 @@ export interface GridSettings {
     acionConfig?: AcionSettings[];
 }
 
-
 export interface ColumnSettings {
     field: string;
     title: string;
@@ -11,9 +10,10 @@ export interface ColumnSettings {
     hidden?: boolean;
     pipeName?: string;
 }
+
 export interface AcionSettings {
     title?: string;
     icon?: string;
     cls?: string;
-    act?: any;
+    act: any;
 }

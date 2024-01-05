@@ -7,7 +7,6 @@ import { ProductCreateComponent } from '../product-create/product-create.compone
 import { ProductService } from '../../service/product.service';
 import { IProductDto } from '../../dto/ProductDto';
 import { TranslateService } from '@ngx-translate/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { GridSettings } from 'src/app/core/services/GridSettings';
 
 @Component({
@@ -142,12 +141,12 @@ export class ProductListComponent implements OnInit {
     acionConfig: [
       {
         title: 'Edit',
-        icon: 'Edit',
+        icon: 'fa fa-edit',
         cls: "btn btn-behance btn-sm m-1",
         act: this.updateProduct.bind(this)
       }, {
         title: 'Delete',
-        icon: 'Delete',
+        icon: 'fa fa-remove',
         cls: "btn btn-danger btn-sm m-1",
         act: this.deleteProduct.bind(this)
       }

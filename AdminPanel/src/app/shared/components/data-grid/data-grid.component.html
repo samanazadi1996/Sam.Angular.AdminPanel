@@ -16,7 +16,10 @@
       </td>
       <td *ngIf="gridSettings.acionConfig && gridSettings.acionConfig.length > 0">
         <button *ngFor="let btn of gridSettings.acionConfig" class="{{btn.cls}}" (click)="btn.act(item)">
-          {{ btn.title+'' | translate }}
+          <i *ngIf="btn.icon" class="{{btn.icon}}"> </i>
+          <span *ngIf="btn.title">
+            {{ btn.title | translate }}
+          </span>
         </button>
       </td>
     </tr>
