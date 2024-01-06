@@ -15,7 +15,7 @@
         <span> {{item[clm.field]}}</span>
       </td>
       <td *ngIf="gridSettings.acionConfig && gridSettings.acionConfig.length > 0">
-        <button *ngFor="let btn of gridSettings.acionConfig" class="{{btn.cls}}" (click)="btn.act(item)">
+        <button *ngFor="let btn of gridSettings.acionConfig" class="{{btn.class}}" (click)="btn.click(item)" [hidden]="btn.where && !item[btn.where]">
           <i *ngIf="btn.icon" class="{{btn.icon}}"> </i>
           <span *ngIf="btn.title">
             {{ btn.title | translate }}

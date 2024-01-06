@@ -142,13 +142,13 @@ export class ProductListComponent implements OnInit {
       {
         title: 'Edit',
         icon: 'fa fa-edit',
-        cls: "btn btn-behance btn-sm m-1",
-        act: this.updateProduct.bind(this)
+        class: "btn btn-behance btn-sm m-1",
+        click: this.updateProduct.bind(this)
       }, {
         title: 'Delete',
         icon: 'fa fa-remove',
-        cls: "btn btn-danger btn-sm m-1",
-        act: this.deleteProduct.bind(this)
+        class: "btn btn-danger btn-sm m-1",
+        click: this.deleteProduct.bind(this),
       }
     ]
   };
