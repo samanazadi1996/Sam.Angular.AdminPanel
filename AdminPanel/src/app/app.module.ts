@@ -31,6 +31,7 @@ import { ProductUpdateComponent } from './modules/product/view/product-update/pr
 import { InputBoxComponent } from './shared/components/input-box/input-box.component';
 import { PaginationComponent } from './shared/components/pagination/pagination.component';
 import { DataGridComponent } from './shared/components/data-grid/data-grid.component';
+import { SelectBoxComponent } from './shared/components/select-box/select-box.component';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
 @NgModule({
@@ -48,6 +49,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     InputBoxComponent,
     PaginationComponent,
     DataGridComponent,
+    SelectBoxComponent,
   ],
 
   imports: [

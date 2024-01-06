@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { AuthenticationService } from 'src/app/core/services/authentication.service';
+import { Router } from '@angular/router';
+import { selectBoxOption } from 'src/app/core/services/selectBoxOption';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,11 +11,23 @@ import Swal from 'sweetalert2';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private titleService: Title, private httpClient: HttpClient, private authenticationService: AuthenticationService) { }
+  constructor(private titleService: Title,
+    public router: Router,
+    private fb: FormBuilder) {
+
+    this.testForm = this.fb.group({
+      name: [null, [Validators.required]],
+    });
+  }
   title = "dashboard"
+  testForm: FormGroup;
+  selectOptions: selectBoxOption[] = [{ value: 1, text: "one" }, { value: 2, text: "two" }, { value: 3, text: "three" }]
   ngOnInit() {
-    this.titleService.setTitle(this.title);  }
+    this.titleService.setTitle(this.title);
+  }
   mbox() {
-    Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
+    // Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
+    console.log(this.testForm.value)
   }
 }
+

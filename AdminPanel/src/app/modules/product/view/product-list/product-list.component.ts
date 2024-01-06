@@ -7,7 +7,7 @@ import { ProductCreateComponent } from '../product-create/product-create.compone
 import { ProductService } from '../../service/product.service';
 import { IProductDto } from '../../dto/ProductDto';
 import { TranslateService } from '@ngx-translate/core';
-import { GridSettings } from 'src/app/core/services/GridSettings';
+import { GridSettings } from 'src/app/core/services/gridSettings';
 
 @Component({
   selector: 'app-product-list',

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GridSettings } from 'src/app/core/services/GridSettings';
+import { GridSettings } from 'src/app/core/services/gridSettings';
 
 @Component({
   selector: 'app-data-grid',
