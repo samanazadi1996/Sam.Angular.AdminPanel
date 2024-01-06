@@ -1,4 +1,3 @@
-import { CreateProductDto } from './../../dto/CreateProductDto';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -22,7 +21,7 @@ export class ProductCreateComponent {
   ) {
     this.createForm = this.fb.group({
       name: ['', [Validators.required]],
-      price: [0, [Validators.required]],
+      price: [null, [Validators.required]],
       barCode: ['', [Validators.required]],
     });
   }

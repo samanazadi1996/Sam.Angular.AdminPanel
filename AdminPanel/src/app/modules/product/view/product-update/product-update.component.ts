@@ -36,11 +36,7 @@ export class ProductUpdateComponent {
     });
 
     this.productsService.getProductById(data.id).subscribe((response: any) => {
-      this.updateForm.patchValue({
-        name: response.data.name,
-        price: response.data.price,
-        barCode: response.data.barCode,
-      });
+      this.updateForm.patchValue(response.data);
     });
   }
 
