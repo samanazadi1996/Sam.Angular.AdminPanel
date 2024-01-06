@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-number-box',
-  templateUrl: './number-box.component.html',
+  selector: 'app-input-box',
+  templateUrl: './input-box.component.html'
 })
-export class NumberBoxComponent {
+export class InputBoxComponent {
   @Input() formGroup: any;
   @Input() formControlName: any;
   @Input() label: string = '';
+  @Input() type: string = 'text';
 }

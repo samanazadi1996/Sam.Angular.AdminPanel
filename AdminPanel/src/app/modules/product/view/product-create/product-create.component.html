@@ -4,9 +4,9 @@
 <form [formGroup]="createForm" (ngSubmit)="save()">
   <mat-dialog-content>
 
-    <app-text-box [formGroup]="createForm" [formControlName]="'name'" label="Name"></app-text-box>
-    <app-number-box [formGroup]="createForm" [formControlName]="'price'" label="Price"></app-number-box>
-    <app-text-box [formGroup]="createForm" [formControlName]="'barCode'" label="BarCode"></app-text-box>
+    <app-input-box [formGroup]="createForm" [formControlName]="'name'" label="Name"></app-input-box>
+    <app-input-box [formGroup]="createForm" [formControlName]="'price'" label="Price" type="number"></app-input-box>
+    <app-input-box [formGroup]="createForm" [formControlName]="'barCode'" label="BarCode"></app-input-box>
 
   </mat-dialog-content>
   <mat-dialog-actions>

@@ -1,23 +1,18 @@
 <h2 mat-dialog-title>
-    {{ "Edit Product" | translate }}
-  </h2>
-  <form [formGroup]="updateForm" (ngSubmit)="save()">
-    <mat-dialog-content>
-      <app-text-box [formGroup]="updateForm" [formControlName]="'name'" label="Name"></app-text-box>
-      <app-number-box [formGroup]="updateForm" [formControlName]="'price'" label="Price"></app-number-box>
-      <app-text-box [formGroup]="updateForm" [formControlName]="'barCode'" label="BarCode"></app-text-box>
-      </mat-dialog-content>
-    <mat-dialog-actions>
-      <button class="btn btn-danger m-2" (click)="closeDialog()" type="button">
-        {{ "Cancel" | translate }}
-      </button>
-      <button
-        class="btn btn-success m-2"
-        type="submit"
-        [disabled]="!updateForm.valid"
-      >
-        {{ "Save" | translate }}
-      </button>
-    </mat-dialog-actions>
-  </form>
-  
+  {{ "Edit Product" | translate }}
+</h2>
+<form [formGroup]="updateForm" (ngSubmit)="save()">
+  <mat-dialog-content>
+    <app-input-box [formGroup]="updateForm" [formControlName]="'name'" label="Name"></app-input-box>
+    <app-input-box [formGroup]="updateForm" [formControlName]="'price'" label="Price" type="number"></app-input-box>
+    <app-input-box [formGroup]="updateForm" [formControlName]="'barCode'" label="BarCode"></app-input-box>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="btn btn-danger m-2" (click)="closeDialog()" type="button">
+      {{ "Cancel" | translate }}
+    </button>
+    <button class="btn btn-success m-2" type="submit" [disabled]="!updateForm.valid">
+      {{ "Save" | translate }}
+    </button>
+  </mat-dialog-actions>
+</form>

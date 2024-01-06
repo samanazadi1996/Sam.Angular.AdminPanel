@@ -1,5 +1,5 @@
 import { FormsModule } from '@angular/forms';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 // import ngx-translate and the http loader
@@ -28,8 +28,7 @@ import { HttpErrorInterceptor } from './core/interceptors/errorInterceptor';
 import { LanguageComponent } from './layout/headers/language/language.component';
 import { MenuComponent } from './layout/headers/menu/menu.component';
 import { ProductUpdateComponent } from './modules/product/view/product-update/product-update.component';
-import { TextBoxComponent } from './shared/components/text-box/text-box.component';
-import { NumberBoxComponent } from './shared/components/number-box/number-box.component';
+import { InputBoxComponent } from './shared/components/input-box/input-box.component';
 import { PaginationComponent } from './shared/components/pagination/pagination.component';
 import { DataGridComponent } from './shared/components/data-grid/data-grid.component';
 
@@ -46,8 +45,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     LanguageComponent,
     MenuComponent,
     ProductUpdateComponent,
-    TextBoxComponent,
-    NumberBoxComponent,
+    InputBoxComponent,
     PaginationComponent,
     DataGridComponent,
   ],
@@ -59,7 +57,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule,MatTableModule,
+    MatDialogModule, MatTableModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -85,7 +83,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
