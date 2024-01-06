@@ -28,16 +28,8 @@ export class ProductCreateComponent {
   }
 
   save() {
-    var createProductDto = new CreateProductDto();
-
-    createProductDto.init({
-      name: this.createForm.get('name')?.value,
-      price: this.createForm.get('price')?.value,
-      barCode: this.createForm.get('barCode')?.value,
-    });
-
     this.productsService
-      .createProduct(createProductDto)
+      .createProduct(this.createForm.value)
       .subscribe((response: any) => {
         if (response.success) this.closeDialog();
       });

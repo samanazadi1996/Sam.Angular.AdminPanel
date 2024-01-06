@@ -19,7 +19,6 @@ import { UpdateProductDto } from '../../dto/UpdateProductDto';
 })
 export class ProductUpdateComponent {
   @Output() productSaved: EventEmitter<void> = new EventEmitter<void>();
-  id: number;
   updateForm: FormGroup;
 
   constructor(
@@ -29,14 +28,14 @@ export class ProductUpdateComponent {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<ProductCreateComponent>
   ) {
-    this.id = data.id;
     this.updateForm = this.fb.group({
+      id: [data.id],
       name: ['', [Validators.required]],
       price: [0, [Validators.required]],
       barCode: ['', [Validators.required]],
     });
 
-    this.productsService.getProductById(this.id).subscribe((response: any) => {
+    this.productsService.getProductById(data.id).subscribe((response: any) => {
       this.updateForm.patchValue({
         name: response.data.name,
         price: response.data.price,
@@ -46,17 +45,8 @@ export class ProductUpdateComponent {
   }
 
   save() {
-    var updateProductDto = new UpdateProductDto();
-
-    updateProductDto.init({
-      id: this.id,
-      name: this.updateForm.get('name')?.value,
-      price: this.updateForm.get('price')?.value,
-      barCode: this.updateForm.get('barCode')?.value,
-    });
-
     this.productsService
-      .updateProduct(updateProductDto)
+      .updateProduct(this.updateForm.value)
       .subscribe((response: any) => {
         if (response.success) this.closeDialog();
       });
