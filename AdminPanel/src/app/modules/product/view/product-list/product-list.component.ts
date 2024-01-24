@@ -131,12 +131,20 @@ export class ProductListComponent implements OnInit {
         title: 'Price',
         width: 200,
         hidden: false,
+        pipeName:"currency"
       }, {
         field: 'barCode',
         title: 'BarCode',
         width: 200,
         hidden: false,
+      },{
+        field: 'created',
+        title: 'Created',
+        width: 200,
+        hidden: false,
+        pipeName:"datetime"
       },
+      
     ],
     acionConfig: [
       {

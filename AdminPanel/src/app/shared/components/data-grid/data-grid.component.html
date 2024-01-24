@@ -12,10 +12,22 @@
   <tbody>
     <tr *ngFor="let item of dataSource">
       <td *ngFor="let clm of gridSettings.columnsConfig" [hidden]="clm.hidden" class="p-2">
-        <span> {{item[clm.field]}}</span>
+        <span *ngIf="!clm.pipeName">
+          {{item[clm.field]}}
+        </span>
+        <span *ngIf="clm.pipeName">
+          <span *ngIf="clm.pipeName=='currency'">
+            {{ item[clm.field] | currency:'IRR':'symbol':'1.2' }}
+          </span>
+          <span *ngIf="clm.pipeName=='datetime'">
+            {{ item[clm.field] | dateTimePipe }}
+          </span>
+
+        </span>
       </td>
       <td *ngIf="gridSettings.acionConfig && gridSettings.acionConfig.length > 0">
-        <button *ngFor="let btn of gridSettings.acionConfig" class="{{btn.class}}" (click)="btn.click(item)" [hidden]="btn.where && !item[btn.where]">
+        <button *ngFor="let btn of gridSettings.acionConfig" class="{{btn.class}}" (click)="btn.click(item)"
+          [hidden]="btn.where && !item[btn.where]">
           <i *ngIf="btn.icon" class="{{btn.icon}}"> </i>
           <span *ngIf="btn.title">
             {{ btn.title | translate }}

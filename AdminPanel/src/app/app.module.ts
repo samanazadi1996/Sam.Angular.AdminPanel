@@ -32,6 +32,7 @@ import { InputBoxComponent } from './shared/components/input-box/input-box.compo
 import { PaginationComponent } from './shared/components/pagination/pagination.component';
 import { DataGridComponent } from './shared/components/data-grid/data-grid.component';
 import { SelectBoxComponent } from './shared/components/select-box/select-box.component';
+import { DateTimePipePipe } from './core/pipes/date-time-pipe.pipe';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
 @NgModule({
@@ -50,6 +51,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent }];
     PaginationComponent,
     DataGridComponent,
     SelectBoxComponent,
+    DateTimePipePipe,
   ],
 
   imports: [
